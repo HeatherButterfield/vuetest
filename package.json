@@ -6,7 +6,7 @@
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test":  "protractor test/conf.js"
+    "test": "protractor test/conf.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
