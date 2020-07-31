@@ -1,11 +1,5 @@
 exports.config = {
-  directConnect: true,
-  capabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
-    }
-  },
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   framework: 'jasmine',
   specs: ['spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
