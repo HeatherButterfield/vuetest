@@ -6,6 +6,7 @@ exports.config = {
   specs: ['spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
+    defaultTimeoutInterval: 30000,
+    showColors: true,
   },
 };
