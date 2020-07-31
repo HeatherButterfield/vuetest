@@ -10,6 +10,7 @@
     "test": "protractor test/conf.js"
   },
   "dependencies": {
+    "chromedriver": "^84.0.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
