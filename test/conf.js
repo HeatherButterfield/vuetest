@@ -13,7 +13,7 @@ exports.config = {
   onPrepare: function () {
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
-        displayStacktrace: true
+        displayStacktrace: 'pretty'
       },
       summary: {
         displayDuration: false
