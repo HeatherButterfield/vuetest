@@ -9,8 +9,6 @@ exports.config = {
   SELENIUM_PROMISE_MANAGER: false,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
-    showColors: true,
-    print: function() {},
   },
   onPrepare: function() {
     jasmine.getEnv().addReporter(new HtmlReporter({
