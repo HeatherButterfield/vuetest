@@ -19,5 +19,25 @@ exports.config = {
         displayDuration: false
       }
     }));
+    jasmine.getEnv().addReporter({
+        suiteStarted: async (result) => {
+            await browser.executeScript('sauce:job-name=' + result.fullName);
+        },
+        specStarted: async (result) => {
+            await browser.executeScript('sauce:context=' + result.fullName);
+        },
+        specDone: async (result) => {
+            // If there are errors please update the error to Sauce Labs
+            if (result.failedExpectations.length > 0) {
+                const promisses = result.failedExpectations.map(async error => {
+                    const errorUpdate = await browser.executeScript('sauce:context=' + error.stack);
+
+                    return errorUpdate;
+                });
+
+                await Promise.all(promisses);
+            }
+        },
+    });
   }
 };
