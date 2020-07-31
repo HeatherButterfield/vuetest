@@ -1,7 +1,10 @@
 exports.config = {
   directConnect: true,
   capabilities: {
-    'browserName': 'chrome'
+    browserName: 'chrome',
+    chromeOptions: {
+      args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+    }
   },
   framework: 'jasmine',
   specs: ['spec.js'],
