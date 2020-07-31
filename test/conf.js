@@ -1,4 +1,4 @@
-var HtmlReporter = require('protractor-beautiful-reporter');
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 exports.config = {
   seleniumAddress: 'https://rNetwork:479bb1d7-c3b0-4748-b13d-223aee158bb9@ondemand.us-west-1.saucelabs.com:443/wd/hub',
@@ -10,9 +10,14 @@ exports.config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
   },
-  onPrepare: function() {
-    jasmine.getEnv().addReporter(new HtmlReporter({
-       baseDirectory: 'tmp/screenshots'
-    }).getJasmine2Reporter());
+  onPrepare: function () {
+    jasmine.getEnv().addReporter(new SpecReporter({
+      spec: {
+        displayStacktrace: true
+      },
+      summary: {
+        displayDuration: false
+      }
+    }));
   }
 };

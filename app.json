@@ -6,7 +6,7 @@
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test-setup": "npm install protractor ; npm install protractor-beautiful-reporter",
+    "test-setup": "npm install protractor ; npm install jasmine-spec-reporter",
     "test": "protractor test/conf.js"
   },
   "dependencies": {
