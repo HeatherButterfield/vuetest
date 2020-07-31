@@ -1,6 +1,6 @@
 exports.config = {
   directConnect: true,
-  chromeDriver: 'chromedriver',
+  chromeDriver: '/app/.chromedriver/bin/chromedriver',
   framework: 'jasmine',
   specs: ['spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
