@@ -14,6 +14,8 @@ describe('Test 1', function() {
   });
 
   it('should log in', async function() {
+    const EC = protractor.ExpectedConditions;
+    
     await $('#login').$('a').click();
 
     await browser.wait(EC.urlContains('/account/login'), 5000);
