@@ -11,6 +11,21 @@ describe('Test 1', function() {
     await browser.wait(EC.urlContains('/r/home'), 5000);
     let flag = $('.country-flag');
     expect(await flag.getText()).toEqual('IN');
-
   });
+
+  it('should log in', async function() {
+    await $('#login').$('a').click();
+
+    await browser.wait(EC.urlContains('/account/login'), 5000);
+
+    await $('#Input_LoginName').sendKeys('10000000');
+    await $('#password').sendKeys('TestAccount123');
+    await $('[value="Login"]').click();
+
+    await browser.wait(EC.urlContains('/account?justSignedIn=true'), 5000);
+
+    expect(await $('h1.full-width').getText()).toEqual('Welcome to Your Dashboard');
+  });
+
+
 });
