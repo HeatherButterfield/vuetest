@@ -52,7 +52,7 @@ describe('Test 1', function() {
 
     await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
 
-    expect(await $('ul:first-child').getText()).toContain('John Smith');
+    expect(await $('#account-editable li:first-child').getText()).toContain('John Smith');
 
     //undo edit
     await $('[href="/r/bo/account/name"] div').click();
@@ -65,6 +65,6 @@ describe('Test 1', function() {
 
     await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
 
-    expect(await $('ul:first-child').getText()).toContain('rNetwork Corporation');
+    expect(await $('#account-editable li:first-child').getText()).toContain('rNetwork Corporation');
   });
 });
