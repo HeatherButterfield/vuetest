@@ -15,7 +15,7 @@ describe('Test 1', function() {
 
   it('should log in', async function() {
     const EC = protractor.ExpectedConditions;
-    
+
     await $('#login').$('a').click();
 
     await browser.wait(EC.urlContains('/account/login'), 5000);
@@ -29,5 +29,13 @@ describe('Test 1', function() {
     expect(await $('h1.full-width').getText()).toEqual('Welcome to Your Dashboard');
   });
 
+  it('should go to the account details page', async function() {
+    const EC = protractor.ExpectedConditions;
 
+    await $('[alt="Account Details"]').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('main h1').getText()).toEqual('Account Details');
+  });
 });
