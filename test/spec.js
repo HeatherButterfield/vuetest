@@ -38,4 +38,33 @@ describe('Test 1', function() {
 
     expect(await $('main h1').getText()).toEqual('Account Details');
   });
+
+  it('should edit account name', async function() {
+    const EC = protractor.ExpectedConditions;
+
+    await $('[href="/r/bo/account/name"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/name'), 5000);
+
+    await $('#fname').sendKeys('John');
+    await $('#lname').sendKeys('Smith');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('ul:first-child').getText()).toContain('John Smith');
+
+    //undo edit
+    await $('[href="/r/bo/account/name"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/name'), 5000);
+
+    await $('#fname').sendKeys('rNetwork');
+    await $('#lname').sendKeys('Corporation');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('ul:first-child').getText()).toContain('rNetwork Corporation');
+  });
 });
