@@ -5,7 +5,7 @@ exports.config = {
   sauceUser: 'rNetwork',
   sauceKey: '479bb1d7-c3b0-4748-b13d-223aee158bb9',
   framework: 'jasmine',
-  specs: ['spec.js'],
+  specs: ['spec.js', 'spec2.js'],
   SELENIUM_PROMISE_MANAGER: false,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
