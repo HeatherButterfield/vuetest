@@ -46,7 +46,9 @@ describe('Test 1', function() {
 
     await browser.wait(EC.urlContains('/r/bo/account/name'), 5000);
 
+    await $('#fname').clear();
     await $('#fname').sendKeys('John');
+    await $('#lname').clear();
     await $('#lname').sendKeys('Smith');
     await $('.submit-button').click();
 
@@ -59,7 +61,9 @@ describe('Test 1', function() {
 
     await browser.wait(EC.urlContains('/r/bo/account/name'), 5000);
 
+    await $('#fname').clear();
     await $('#fname').sendKeys('rNetwork');
+    await $('#lname').clear();
     await $('#lname').sendKeys('Corporation');
     await $('.submit-button').click();
 
