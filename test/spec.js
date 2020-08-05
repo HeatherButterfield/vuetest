@@ -100,4 +100,33 @@ describe('Test 1', function() {
 
     expect(await $('#account-editable li:nth-child(2)').getText()).toContain('admin@rnetwork.io');
   });
+
+  it('should edit account phone number', async function() {
+    const EC = protractor.ExpectedConditions;
+
+    await $('[href="/r/bo/account/phone"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/phone'), 5000);
+
+    await $('input:nth-child(2)').clear();
+    await $('input:nth-child(2)').sendKeys('1234567890');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('#account-editable li:nth-child(3)').getText()).toContain('1234567890');
+
+    //undo edit
+    await $('[href="/r/bo/account/phone"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/phone'), 5000);
+
+    await $('input:nth-child(2)').clear();
+    await $('input:nth-child(2)').sendKeys('5555555555');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('#account-editable li:nth-child(3)').getText()).toContain('5555555555');
+  });
 });
