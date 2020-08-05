@@ -7,6 +7,9 @@ exports.config = {
   framework: 'jasmine',
   specs: ['spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 120000,
+  },
   onPrepare: function () {
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
