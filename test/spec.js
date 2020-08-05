@@ -71,4 +71,33 @@ describe('Test 1', function() {
 
     expect(await $('#account-editable li:first-child').getText()).toContain('rNetwork Corporation');
   });
+
+  it('should edit account email', async function() {
+    const EC = protractor.ExpectedConditions;
+
+    await $('[href="/r/bo/account/email"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/email'), 5000);
+
+    await $('input').clear();
+    await $('input').sendKeys('admin2@rnetwork.io');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('#account-editable li:nth-child(2)').getText()).toContain('admin2@rnetwork.io');
+
+    //undo edit
+    await $('[href="/r/bo/account/email"] div').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/email'), 5000);
+
+    await $('input').clear();
+    await $('input').sendKeys('admin@rnetwork.io');
+    await $('.submit-button').click();
+
+    await browser.wait(EC.urlContains('/r/bo/account/details'), 5000);
+
+    expect(await $('#account-editable li:nth-child(2)').getText()).toContain('admin@rnetwork.io');
+  });
 });
