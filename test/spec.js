@@ -133,7 +133,7 @@ describe('Test 1', function() {
   it('should edit pay with commissions', async function() {
     const EC = protractor.ExpectedConditions;
 
-    await $('[href="/account"]').click();
+    await $('.account-return [href="/account"]').click();
     await browser.wait(EC.urlContains('/account'), 5000);
 
     await $('[href="/account/commissions"]').click();
