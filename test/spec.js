@@ -139,7 +139,7 @@ describe('Test 1', function() {
     await $('#admin-apps [href="/account/commissions"]').click();
     await browser.wait(EC.urlContains('/account/commissions'), 5000);
 
-    if ($('[href="/r/bo/account/paywithcomm"]').isPresent() {
+    if ($('[href="/r/bo/account/paywithcomm"]').isPresent()) {
       await $('.cashout-wrapper div div a').click();
       await browser.wait(EC.urlContains('paywithcomm'), 5000);
       await $('#account-selectpayment select').$('[value="existing"]').click();
