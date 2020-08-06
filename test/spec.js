@@ -129,4 +129,31 @@ describe('Test 1', function() {
 
     expect(await $('#account-editable li:nth-child(3)').getText()).toContain('5555555555');
   });
+
+  it('should edit pay with commissions', async function() {
+    const EC = protractor.ExpectedConditions;
+
+    await $('[href="/account"]').click();
+    await browser.wait(EC.urlContains('/account'), 5000);
+
+    await $('[href="/account/commissions"]').click();
+    await browser.wait(EC.urlContains('/account/commissions'), 5000);
+
+    if (await $('.cashout-wrapper').getText().includes('Status: On')) {
+      await $('.cashout-wrapper div div a').click();
+      await browser.wait(EC.urlContains('paywithcomm'), 5000);
+      await $('#account-selectpayment select').$('[value="existing"]').click();
+      await $('.submit-button').click();
+      await browser.wait(EC.urlContains('/account/commissions'), 5000);
+      expect(await $('.cashout-wrapper').getText()).toContain('Off');
+    }
+    else {
+      await $('.cashout-wrapper div div a').click();
+      await browser.wait(EC.urlContains('paywithcomm'), 5000);
+      await $('#account-selectpayment select').$('[value="existing"]').click();
+      await $('.submit-button').click();
+      await browser.wait(EC.urlContains('/account/commissions'), 5000);
+      expect(await $('.cashout-wrapper').getText()).toContain('On');
+    }
+  });
 });
