@@ -136,10 +136,10 @@ describe('Test 1', function() {
     await $('.account-return [href="/account"]').click();
     await browser.wait(EC.urlContains('/account'), 5000);
 
-    await $('[href="/account/commissions"]').click();
+    await $('#admin-apps [href="/account/commissions"]').click();
     await browser.wait(EC.urlContains('/account/commissions'), 5000);
 
-    if (await $('.cashout-wrapper').getText().includes('Status: On')) {
+    if (await EC.textToBePresentInElement($('.cashout-wrapper'), 'Status: On')) {
       await $('.cashout-wrapper div div a').click();
       await browser.wait(EC.urlContains('paywithcomm'), 5000);
       await $('#account-selectpayment select').$('[value="existing"]').click();
