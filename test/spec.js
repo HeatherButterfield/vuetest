@@ -156,4 +156,16 @@ describe('Test 1', function() {
       expect(await $('.cashout-wrapper').getText()).toContain('On');
     }
   });
+
+  it('should check vidoes on the india products page', async function() {
+    const EC = protractor.ExpectedConditions;
+
+    await browser.waitForAngularEnabled(false);
+    await browser.get('https://test.rnetwork.io/r/products');
+
+    await $('[video-url="https://vimeo.com/432888561/96cb168176"]').click();
+    await $('.submit-button').click();
+
+    expect(EC.visibilityOf($('[src="https://player.vimeo.com/video/432888561/?autoplay=false&color=&loop=false&controls=true&title=true"]'), 5000);
+  });
 });
