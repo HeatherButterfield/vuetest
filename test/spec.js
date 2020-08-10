@@ -166,6 +166,6 @@ describe('Test 1', function() {
     await $('[video-url="https://vimeo.com/432888561/96cb168176"]').click();
     await $('.submit-button').click();
 
-    expect(EC.visibilityOf($('[src="https://player.vimeo.com/video/432888561/?autoplay=false&color=&loop=false&controls=true&title=true"]'), 5000);
+    expect(EC.visibilityOf($('[src="https://player.vimeo.com/video/432888561/?autoplay=false&color=&loop=false&controls=true&title=true"]'), 5000));
   });
 });
