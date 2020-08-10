@@ -145,7 +145,7 @@ describe('Test 1', function() {
       await $('#account-selectpayment select').$('[value="existing"]').click();
       await $('.submit-button').click();
       await browser.wait(EC.urlContains('/account/commissions'), 5000);
-      expect(await $('.cashout-wrapper').getText()).toContain('Off');
+      expect(await $('.cashout-wrapper').getText()).toContain('On');
     }
     else {
       await $('.cashout-wrapper div div a').click();
@@ -153,7 +153,7 @@ describe('Test 1', function() {
       await $('#account-selectpayment select').$('[value="existing"]').click();
       await $('.submit-button').click();
       await browser.wait(EC.urlContains('/account/commissions'), 5000);
-      expect(await $('.cashout-wrapper').getText()).toContain('On');
+      expect(await $('.cashout-wrapper').getText()).toContain('Off');
     }
   });
 
